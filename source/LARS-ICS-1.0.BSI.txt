@@ -1,4 +1,4 @@
- Copyright 2014 Bundesamt für Sicherheit in der Informationstechnik
+ Copyright 2014 Federal Office for Security in Information Technology
 
    Licensed under the Apache License, Version 2.0 (the "License");
    you may not use this file except in compliance with the License.

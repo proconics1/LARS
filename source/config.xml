@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>LARS ICS - configuration file</comment>
+<entry key="PERCENTAGE">20</entry>
+<entry key="DB-PATH">C:\Users\MogaleM\Documents\LARS\lars.db3</entry>
+</properties>
