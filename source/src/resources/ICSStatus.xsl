@@ -11,7 +11,7 @@
 		<fo:root xmlns:fo="http://www.w3.org/1999/XSL/Format">
 			<fo:layout-master-set>
 				<fo:simple-page-master margin-bottom="0.79in" margin-left="0.98in" margin-right="0.98in" margin-top="0.25in" master-name="s1-default" page-height="297mm" page-width="210mm">
-					<fo:region-body margin-left="0mm" margin-right="0mm" margin-top="15mm" margin-bottom="8mm"/>
+					<fo:region-body margin-left="0mm" margin-right="0mm" margin-top="20mm" margin-bottom="8mm"/>
 					<fo:region-before extent="12mm" region-name="xsl-region-before-default"/>
 					<fo:region-after extent="12mm" region-name="xsl-region-after-default"/>
 				</fo:simple-page-master>
@@ -25,23 +25,23 @@
 			<fo:page-sequence id="section_s1" format="" master-reference="s1">
 				<fo:static-content flow-name="xsl-region-before-default">
 					<fo:block font-size="11.0pt" line-height="100%" space-after="0in" space-before="0in" text-align="center">
-						<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri" padding-right="2cm">Bericht</inline>
-						<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri">LARS ICS - Light And Right Security ICS</inline>
-						<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri" padding-left="2cm"><xsl:value-of select="report/date" /></inline>
+						<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri" padding-right="1.6cm"><xsl:value-of select="report/date" /></inline>
+						<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri" padding-right="1cm">LARS ICS - Light And Right Security ICS</inline>
+						<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri"><fo:external-graphic src="src/resources/Proconics-Logo.png" /></inline>
 					</fo:block>
 					<fo:block>
-						<fo:leader rule-thickness="0.5pt" rule-style="solid" leader-length="100%" leader-pattern="rule"/>
+						<fo:leader rule-thickness="0.5pt" rule-style="solid" leader-length="100%" leader-pattern="rule" />
 					</fo:block>
 				</fo:static-content>
 				<fo:static-content flow-name="xsl-region-after-default">
 					<fo:block font-size="11.0pt" line-height="100%" space-after="0in" space-before="0in" text-align="center" font-family="Calibri">
 						<fo:leader rule-thickness="0.5pt" rule-style="solid" leader-length="100%" leader-pattern="rule"/>
-						Seite <fo:page-number/> von <fo:page-number-citation ref-id="theEnd"/> 
+						Page<fo:page-number/> of <fo:page-number-citation ref-id="theEnd"/> 
 					</fo:block>
 				</fo:static-content>
-				<fo:flow flow-name="xsl-region-body">
+				<fo:flow  flow-name="xsl-region-body">
 		
-					<xsl:apply-templates />
+					<xsl:apply-templates  />
 		
 					<fo:block id="theEnd"/>
 				</fo:flow>
@@ -56,7 +56,7 @@
 
 		<fo:block font-size="11.0pt" line-height="115%" space-after="4mm" space-before="4mm">
 			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-weight="bold">
-				<inline font-family="Calibri">Projekt: </inline>
+				<inline font-family="Calibri">Project: </inline>
 			</inline>
 			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri"> </inline>
 			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri"><xsl:value-of select="case" /></inline>
@@ -64,7 +64,7 @@
 
 		<fo:block font-size="11.0pt" line-height="115%" space-after="4mm" space-before="0in">
 			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-weight="bold">
-				<inline font-family="Calibri">Benutzer: </inline>
+				<inline font-family="Calibri">User: </inline>
 			</inline>
 			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri"> </inline>
 			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Calibri"><xsl:value-of select="user" /></inline>
@@ -80,7 +80,7 @@
 			<xsl:choose>
 				<xsl:when test="measure">
 					<fo:block space-after="4mm" >
-						Folgende Maﬂnahmen sollten verbessert werden, um das Sicherheitsniveau zu erhˆhen.
+						The following measures should be improved to increase the level of safety.
 					</fo:block>
 					<fo:block>
 						<!--fo:table-and-caption-->
@@ -94,13 +94,13 @@
 							<fo:table-header>
 							  <fo:table-row>
 								<fo:table-cell border-bottom-style="solid">
-								  <fo:block font-weight="bold">Maﬂnahme</fo:block>
+								  <fo:block font-weight="bold">Measure</fo:block>
 								</fo:table-cell>
 								<fo:table-cell border-left-style="solid" margin-left="1mm" border-bottom-style="solid">
-								  <fo:block font-weight="bold">Antwort</fo:block>
+								  <fo:block font-weight="bold">Answer</fo:block>
 								</fo:table-cell>
 								<fo:table-cell border-left-style="solid" margin-left="1mm" border-bottom-style="solid">
-								  <fo:block font-weight="bold">Kritikalit‰t</fo:block>
+								  <fo:block font-weight="bold">Criticality</fo:block>
 								</fo:table-cell>
 							  </fo:table-row>
 							</fo:table-header>
@@ -114,7 +114,7 @@
 				</xsl:when>
 				<xsl:otherwise>
 					<fo:block>
-						Keine Maﬂnahmen gefunden, die den Kriterien entsprechen.
+						No measures found that meet the criteria.
 					</fo:block>
 				</xsl:otherwise> 
 			</xsl:choose>
@@ -123,7 +123,7 @@
 			<xsl:template match="unanswered">
 				<fo:block font-size="12.0pt" line-height="115%" space-after="2mm" space-before="4mm">
 					<inline xmlns="http://www.w3.org/1999/XSL/Format" font-weight="bold">
-						<inline font-family="Calibri">Nicht beantwortete Fragen:</inline>
+						<inline font-family="Calibri">Unanswered Questions:</inline>
 					</inline>
 				</fo:block>
 				<fo:block>
@@ -138,22 +138,22 @@
 						<fo:table-header>
 						  <fo:table-row>
 							<fo:table-cell>
-							  <fo:block font-weight="bold">Asset Typ</fo:block>
+							  <fo:block font-weight="bold">Asset-Type</fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
-							  <fo:block font-weight="bold">Dom‰ne</fo:block>
+							  <fo:block font-weight="bold">Domain</fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
-							  <fo:block font-weight="bold">Kategorie</fo:block>
+							  <fo:block font-weight="bold">Category</fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
-							  <fo:block font-weight="bold">Maﬂnahme</fo:block>
+							  <fo:block font-weight="bold">Measure</fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
-							  <fo:block font-weight="bold">Kritikalit‰t</fo:block>
+							  <fo:block font-weight="bold">Criticality</fo:block>
 							</fo:table-cell>
 							<fo:table-cell>
-							  <fo:block font-weight="bold">Antwort</fo:block>
+							  <fo:block font-weight="bold">Answer</fo:block>
 							</fo:table-cell>
 						  </fo:table-row>
 						</fo:table-header>
@@ -212,7 +212,7 @@
 				
 	 <xsl:template match="answerstatistic">
 	    <fo:block break-before="auto" font-size="14.0pt" keep-with-next="always" line-height="115%" space-after="1mm" space-before="4mm" text-align="center">
-			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Cambria">Umsetzungsstatus der Maﬂnahmen</inline>
+			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Cambria">Implement Status Of the Measures</inline>
 		</fo:block>
 	    <fo:block>
 	 	<fo:instream-foreign-object>
@@ -261,7 +261,7 @@
 	</xsl:template>
 	<xsl:template match="scorestatistic">
 		<fo:block break-before="auto" font-size="14.0pt" keep-with-next="always" line-height="115%" space-after="1mm" space-before="4mm" text-align="center">
-			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Cambria"><xsl:value-of select="answer" />e Maﬂnahmen</inline>
+			<inline xmlns="http://www.w3.org/1999/XSL/Format" font-family="Cambria"><xsl:value-of select="answer" /> Activities</inline>
 		</fo:block>
 	    <fo:block>
 	 	<fo:instream-foreign-object>
