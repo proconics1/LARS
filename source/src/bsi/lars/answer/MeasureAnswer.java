@@ -13,7 +13,7 @@ import bsi.lars.backend.datastore.layers.Layer;
 import bsi.lars.backend.datastore.layers.Measure;
 
 /**
- * Antwort für eine {@link Measure}
+ * Answer for a {@link Measure}
  * 
  *
  */
@@ -41,8 +41,8 @@ public class MeasureAnswer extends Answer {
 	}
 	
 	/**
-	 * Gibt 0 für ja, 1 für nein und -1 für nicht gesetzt zurück.
-	 * @return Gibt 0 für ja, 1 für nein und -1 für nicht gesetzt zurück.
+	 * Returns 0 for yes, 1 for no, and -1 for not set.
+	 * @return Returns 0 for yes, 1 for no, and -1 for not set.
 	 */
 	public int getYesNoAnswer() {
 		if(isYesNo()) {
@@ -54,13 +54,13 @@ public class MeasureAnswer extends Answer {
 			}
 			return -1;
 		}else{
-			throw new IllegalArgumentException("YesNo Methode einer Answer aufgerufen, die nicht von Typ YesNo ist.");
+			throw new IllegalArgumentException("YesNo Method of an answer called that is not of type YesNo is.");
 		}
 	}
 	
 	/**
 	 * 
-	 * @return gibt den Index der gewählten Antwort zurück, oder -1 wenn nichts gewählt ist; verwende getComponents()[index] um das gewählte JComponent Objekt zu ermitteln.
+	 * @return returns the index of the selected answer, or -1 if nothing is selected; use getComponents () [index] to get the chosen JComponent object.
 	 */
 	public int getComplexAnswer() {
 		if(isComplex()) {
@@ -74,7 +74,7 @@ public class MeasureAnswer extends Answer {
 			}
 			return -1;
 		}else{
-			throw new IllegalArgumentException("Complex Methode einer Answer aufgerufen, die nicht von Typ Complex ist.");
+			throw new IllegalArgumentException("Complex method called an Answer that is not of type complex.");
 		}
 	}
 	
@@ -94,20 +94,20 @@ public class MeasureAnswer extends Answer {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Antwort für Maßnahme ");
+		sb.append("Answer for Action ");
 		sb.append(getLayer().getName());//.toString());
 		sb.append(' ');
 
-		if(isUnanswered())sb.append(" (unbeantwortet) ");
-		if(isFullyAnswered())sb.append(" (vollständig beantwortet) ");
+		if(isUnanswered())sb.append(" (unanswered) ");
+		if(isFullyAnswered())sb.append(" (completely Answered) ");
 		
 		switch(type) {
 		case yesno:
-			sb.append("JaNein: ");
+			sb.append("YesNo: ");
 			sb.append(getYesNoAnswer());
 			break;
 		case complex:
-			sb.append("Complexe Antwort: ");
+			sb.append("Completely Answered: ");
 			sb.append(getComplexAnswer());
 			break;
 		}
@@ -118,7 +118,7 @@ public class MeasureAnswer extends Answer {
 	}
 	
 	/**
-	 * Daten aus der Datenbank laden.
+	 * Load data from the Database.
 	 */
 	@Override
 	public void load() throws InvalidDatabaseStructureException, NoCaseSelectedException, NoUserSelectedException {
@@ -169,7 +169,7 @@ public class MeasureAnswer extends Answer {
 			sb.append("</complex>\n");
 			break;
 		default:
-			throw new Exception("Implementierungsfehler.");
+			throw new Exception("Implementation errors.");
 		}
 		return sb.toString();
 	}

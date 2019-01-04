@@ -18,22 +18,22 @@ import bsi.lars.backend.data.Comment;
 import bsi.lars.backend.datastore.layers.Layer;
 
 /**
- * Sammelt die Antwort aus der graphischen Oberfläche.
+ * Collect the answer from the graphical interface.
  * 
  *
  */
 public abstract class Answer {
 
 	/**
-	 * Wenn das element zu dem die Antwort gehört kein Blatt ist, werden hier die Unterantworten verlinkt.
+	 * If the element to which the answer belongs is not a leaf, the sub-answers are linked here.
 	 */
 	private Vector<Answer> subanswers = new Vector<Answer>();
 	/**
-	 * Der {@link Layer} zu dem das Answer Objekt gehört.
+	 *The {@link Layer} to which the Answer object belongs.
 	 */
 	private Layer layer;
 	/**
-	 * Die {@link javax.swing.JComponent}en die das Answer Object zum bestimmen der Antwort benötigt..
+	 * The {@link javax.swing.JComponent} which requires the Answer Object to determine the answer..
 	 */
 	private JComponent[] components;
 	private Comment loadedComment;
@@ -115,13 +115,13 @@ public abstract class Answer {
 		}else if(c instanceof JRadioButton) {
 			return ((Boolean) ((JRadioButton) c).isSelected()).toString();
 		}else{
-			throw new IllegalArgumentException(c.toString() + " nicht implementiert.");
+			throw new IllegalArgumentException(c.toString() + " Not implemented.");
 		}
 	}
 	
 	/**
-	 * Herausfinden, ob die Antwort vollständig ist.
-	 * @return true wenn das Answer Objekt vollständig beantwortet ist, sonst false
+	 * Find out if the answer is complete.
+	 * @return true if the Answer object is completely answered, otherwise false
 	 */
 	public boolean isFullyAnswered() {
 		for(JComponent c : components) {
@@ -140,16 +140,16 @@ public abstract class Answer {
 						return false;
 					}
 				} else{
-					throw new IllegalArgumentException(c.toString() + " nicht implementiert.");
+					throw new IllegalArgumentException(c.toString() + " Not implemented.");
 				}
 			}else if(c instanceof JCheckBox) {
-				//Wenn JCheckBox, dann muss es eine Category sein.
-				//Checkbox true => nicht benötigt => vollständig beantwortet, was auch immer in den subanswers steht.
+				//If JCheckBox, then it has to be a category.
+				//Checkbox true => not required => completely answered, whatever is in the subanswers.
 				if(((JCheckBox) c).isSelected()) {
 					return true;
 				}
 			}else{
-				throw new IllegalArgumentException(c.toString() + " nicht implementiert.");
+				throw new IllegalArgumentException(c.toString() + " Not implemented.");
 			}
 		}
 		for(Answer subanswer : subanswers) {
@@ -161,8 +161,8 @@ public abstract class Answer {
 	}
 	
 	/**
-	 * Herausfinden, ob der Benutzer für diese Antwort noch keine Eingabe getätigt hat.
-	 * @return true, wenn der Benutzer noch nichts ausgewählt hat, sonst false.
+	 * Find out if the user has not yet entered an entry for this answer.
+	 * @return true, if the user has not selected anything yet, otherwise false.
 	 */
 	public boolean isUnanswered() {
 		for(JComponent c : components) {
@@ -181,14 +181,14 @@ public abstract class Answer {
 						return false;
 					}
 				} else{
-					throw new IllegalArgumentException(c.toString() + " nicht implementiert.");
+					throw new IllegalArgumentException(c.toString() + " Not Implemented.");
 				}
 			}else if(c instanceof JCheckBox) {
-				//Wenn JCheckBox, dann muss es eine Category sein.
-				//Diese ist standardmäßig auf ja gesetzt, also nie nicht beantwortet.
+				// If JCheckBox, then it must be a Category.
+				// This is set to yes by default, so never answered.
 				return false;
 			}else{
-				throw new IllegalArgumentException(c.toString() + " nicht implementiert.");
+				throw new IllegalArgumentException(c.toString() + " Not Implemented.");
 			}
 		}
 		for(Answer subanswer : subanswers) {
@@ -211,7 +211,7 @@ public abstract class Answer {
 	}
 	
 	/**
-	 * Daten aus der Datenbank laden
+	 * Load data from the database
 	 * @throws InvalidDatabaseStructureException
 	 * @throws NoCaseSelectedException
 	 * @throws NoUserSelectedException

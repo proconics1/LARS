@@ -13,7 +13,7 @@ import bsi.lars.backend.data.Comment;
 import bsi.lars.backend.datastore.layers.Category;
 
 /**
- * Antwort für eine {@link Category}
+ * Answer for a {@link Category}
  * 
  *
  */
@@ -24,8 +24,8 @@ public class CategoryAnswer extends Answer {
 	}
 	
 	/**
-	 * Wird nicht verwendet. Kann verwendet werden, um die Category verpflichtend zu machen.
-	 * @return Gibt true zurück, wenn die Kategorie verpflichtend sein soll
+	 * Is not used. Can be used to make the category compulsory.
+	 * @return Returns true if the category is mandatory
 	 */
 	public boolean isNeeded() {
 		if(((Category) getLayer()).isMandatory()) {
@@ -35,17 +35,17 @@ public class CategoryAnswer extends Answer {
 	}
 	
 	/**
-	 * siehe {@link MeasureAnswer#getYesNoAnswer()}
-	 * @return siehe {@link MeasureAnswer#getYesNoAnswer()}
+	 *please refer {@link MeasureAnswer#getYesNoAnswer()}
+	 * @return please refer {@link MeasureAnswer#getYesNoAnswer()}
 	 */
 	public int getAnswer() {
 		JComponent[] c = getComponents();
 		for(int i = 1 ; i < c.length ; ++i) {
 			if(c[i] instanceof JCheckBox) {
 				if(((JCheckBox) c[i]).isSelected()) {
-					return 1;//Nicht benötigt
+					return 1;//Not Required
 				}else{
-					return 0;//Benötigt
+					return 0;//Requires
 				}
 			}
 		}
@@ -68,16 +68,16 @@ public class CategoryAnswer extends Answer {
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
-		sb.append("Antwort für Kategorie ");
+		sb.append("Answer for category ");
 		sb.append(getLayer().getName());
 		sb.append(' ');
 
 		
-		sb.append("Ja: ");
+		sb.append("Yes: ");
 		sb.append(getValue(getComponents()[0]));
 		sb.append(' ');
 		
-		sb.append("Nein: ");
+		sb.append("No: ");
 		sb.append(getValue(getComponents()[1]));
 		
 		appendSubanswers(sb);
@@ -86,7 +86,7 @@ public class CategoryAnswer extends Answer {
 	}
 
 	/**
-	 * Daten aus der Datenbank laden.
+	 * Load data from the database.
 	 */
 	@Override
 	public void load() throws InvalidDatabaseStructureException, NoCaseSelectedException, NoUserSelectedException {
